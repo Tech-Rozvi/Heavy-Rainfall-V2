@@ -1,0 +1,36 @@
+{
+  "model_name": "EPRF",
+  "version": "7.0.0",
+  "timestamp_utc": "2026-10-16T06:54:26.417163+00:00",
+  "input_shape": [
+    6939,
+    1,
+    1
+  ],
+  "n_years_annual_maxima": 19,
+  "return_periods": [
+    2,
+    5,
+    10,
+    20,
+    25,
+    50,
+    100,
+    200,
+    500
+  ],
+  "n_bootstrap": 200,
+  "ci_level": 0.9,
+  "random_seed": 42,
+  "scientific_claims": [
+    "ETCCDI indices are diagnostic characterisations of the historical record.",
+    "Return levels are GEV quantiles fitted to annual maxima with parametric bootstrap CIs.",
+    "Pixel-wise fits assume spatial independence of extremes.",
+    "This is not a numerical weather prediction system."
+  ],
+  "limitations": [
+    "Record length limits reliable high return periods.",
+    "No dynamical downscaling; climate projections use transparent delta-change.",
+    "Spatial coherence of extremes is not modelled."
+  ]
+}

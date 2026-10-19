@@ -1,0 +1,97 @@
+# EPRF v7.0 — Extreme Precipitation Risk Framework configuration
+# All methodological choices are documented in docs/SCIENTIFIC_AUDIT_v7.md
+# and docs/METHODOLOGY_v7.md
+
+project:
+  name: EPRF
+  version: "7.0.0"
+  random_seed: 42
+  crs: EPSG:4326
+  metric_crs: EPSG:3857
+
+study_area:
+  # Prefer real GeoJSON / GAUL. Synthetic geometry is for unit tests only.
+  boundary_path: null
+  target_resolution_m: 5000   # Match coarsest informative precip product
+
+time:
+  start_date: "1991-01-01"
+  end_date: "2020-12-31"
+  # Zimbabwe primary rainy season (authoritative regional climatology)
+  seasons:
+    wet_season: [11, 12, 1, 2, 3]
+    dry_season: [5, 6, 7, 8, 9]
+    transition: [4, 10]
+
+heavy_rain_definition:
+  method: percentile          # or fixed
+  fixed_threshold_mm: 50.0
+  percentile: 95
+  wet_day_mm: 1.0
+
+# Predictors used for susceptibility / ML — deliberately EXCLUDE
+# MAP, Rx1day, Rx5day, R95p (circular with the target).
+predictors:
+  atmospheric:
+    - relative_humidity
+    - temperature
+    - wind_speed
+    - distance_to_coast
+  terrain:
+    - elevation
+    - slope
+    - aspect_exposure
+  optional_physical:          # enabled only when data available
+    - precipitable_water
+    - cape
+    - specific_humidity
+
+extremes:
+  method: gev                 # gev | gpd | both
+  return_periods: [2, 5, 10, 20, 25, 50, 100, 200, 500]
+  n_bootstrap: 200
+  ci_level: 0.90
+  min_years_for_gev: 10
+  pot_threshold_quantile: 0.95
+  pot_decluster_days: 3
+
+weighting:
+  # Susceptibility diagnostic only — not the primary quantitative product
+  method: ahp                 # ahp | data_driven | equal
+  ahp_max_acceptable_cr: 0.10
+
+validation:
+  spatial_folds: 5
+  temporal_folds: 5
+  metrics: [mae, rmse, bias, corr, r2, nse, kge, pod, far, csi]
+
+uncertainty:
+  monte_carlo_iterations: 200
+  quality_min_years_high: 20
+  quality_min_years_moderate: 10
+  quality_min_years_low: 5
+
+climate:
+  scenarios: [ssp126, ssp245, ssp370, ssp585]
+  horizons: [2030, 2050, 2080]
+  method: delta_change        # transparent; not dynamical downscaling
+  allow_default_factors: false
+
+data_acquisition:
+  mode: local                 # local | api | auto
+  precipitation:
+    primary: chirps
+    fallback: [imerg, era5]
+  atmospheric:
+    provider: era5
+  dem:
+    provider: copernicus_dem
+  allow_synthetic: false      # production default
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  output_dir: outputs/eprf
+  report_dir: outputs/eprf/reports
+
+nodata_value: -9999.0

@@ -1,0 +1,63 @@
+project:
+  name: Heavy-Rainfall-Model
+  version: "4.0"
+  random_seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  output_dir: outputs
+  boundaries_dir: data/boundaries/gaul
+
+data_acquisition:
+  mode: api
+  resolution_m: 5000
+  precipitation:
+    provider: chirps
+  topography:
+    provider: copernicus_dem
+  atmospheric:
+    provider: aws_zarr
+    endpoint: "s3://era5-pds/zarr/"
+    requires_auth: false
+  coastline:
+    provider: natural_earth
+
+scientific_options:
+  allow_synthetic_data: false
+
+gaul:
+  data_dir: data/boundaries/gaul
+  layer: null
+
+factors:
+  terrain_factors:
+    aspect_exposure:
+      dominant_wind_from_deg: 90.0
+
+hydraulics:
+  enabled: false
+  dx_m: 30
+  dy_m: 30
+  manning_default: 0.04
+  curve_number_default: 75
+  storm_duration_h: 24
+  evt_method: gumbel
+  return_periods: [10, 50, 100, 250, 500]
+
+climate:
+  allow_default_factors: false
+  default_ssp: ssp245
+  default_horizon_year: 2050
+
+
+forecast:
+  enabled: true
+  default_days: 5
+  max_days: 7
+
+surface:
+  land_cover: esa_worldcover
+  soil: soilgrids
+  manning_default: 0.04
+  cn_default: 75

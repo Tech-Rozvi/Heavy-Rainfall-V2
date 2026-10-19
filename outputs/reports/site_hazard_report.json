@@ -1,0 +1,46 @@
+{
+  "site_name": "rozvi_aoi",
+  "bounds": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "mode": "local",
+  "depth_rows": [],
+  "climate_rows": [
+    {
+      "ssp": "ssp126",
+      "y2030": "1.030",
+      "y2050": "1.050",
+      "y2080": "1.070"
+    },
+    {
+      "ssp": "ssp245",
+      "y2030": "1.050",
+      "y2050": "1.090",
+      "y2080": "1.140"
+    },
+    {
+      "ssp": "ssp585",
+      "y2030": "1.070",
+      "y2050": "1.150",
+      "y2080": "1.280"
+    }
+  ],
+  "exposure": {
+    "n_buildings": 0,
+    "by_threshold": {}
+  },
+  "peril": {
+    "pluvial": "medium",
+    "fluvial": "low",
+    "coastal": "low",
+    "notes": "Susceptibility screening run; enable --mode forecast or hydraulics for depth maps."
+  },
+  "sources": {
+    "mode": "local",
+    "raw_dir": "data\\raw"
+  },
+  "generated_at": "2026-10-19 04:03"
+}

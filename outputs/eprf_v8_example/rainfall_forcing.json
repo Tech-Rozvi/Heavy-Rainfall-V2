@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "aoi_id": "7193da7e60da8a14",
+    "timestamp_utc": "2026-10-07T18:54:17.101792+00:00",
+    "model_version": "8.0.0",
+    "module": "eprf.design_storm",
+    "crs": "EPSG:4326",
+    "units": {},
+    "scenario": null,
+    "return_period_years": 100,
+    "confidence": "Very low",
+    "data_kind": "estimated",
+    "notes": [
+      "Extrapolation ratio 3.3 > 2 (T=100, n=30); wide CI (62% of estimate)"
+    ]
+  },
+  "total_depth_mm": 97.68508772566629,
+  "duration_hours": 24,
+  "peak_intensity_mm_h": 12.876823190973353,
+  "hyetograph_mm": [
+    1.5452187829168023,
+    1.67958563360522,
+    1.8395461701390503,
+    2.033182609101056,
+    2.2723805631129443,
+    2.5753646381946704,
+    2.971574582532312,
+    3.5118608702654597,
+    4.292274396991117,
+    5.518638510417151,
+    7.726093914584013,
+    12.876823190973353,
+    12.876823190973353,
+    7.726093914584013,
+    5.518638510417151,
+    4.292274396991117,
+    3.5118608702654597,
+    2.971574582532312,
+    2.5753646381946704,
+    2.2723805631129443,
+    2.033182609101056,
+    1.8395461701390503,
+    1.67958563360522,
+    1.5452187829168023
+  ],
+  "timestep_hours": 1.0,
+  "temporal_pattern": "alternating_block",
+  "spatial_field": null,
+  "ensemble_members": null,
+  "return_level_source": null
+}

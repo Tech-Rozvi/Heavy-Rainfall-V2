@@ -1,0 +1,121 @@
+# ROZVI unified configuration (Phase 2–3)
+# Single tree preferred over config.yaml / default_config.yaml / eprf_config.yaml
+# Legacy files remain for backward compatibility but this file is authoritative.
+
+platform:
+  name: ROZVI
+  version: "0.11.0"
+  eprf_version: "8.2.0"
+  random_seed: 42
+
+crs:
+  working: EPSG:4326
+  metric: EPSG:3857
+  require_explicit_projected: true
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  output_dir: outputs
+  boundaries_dir: data/boundaries/gaul
+
+data_acquisition:
+  mode: local                 # local | api | auto
+  allow_synthetic: false      # production default: never silent synthetic
+  precipitation:
+    primary: chirps
+    fallback: [imerg, era5]
+  dem:
+    provider: copernicus_dem
+  atmospheric:
+    provider: era5
+
+qc:
+  precip_max_daily_mm: 800.0
+  precip_min_mm: 0.0
+  allow_nan: true
+  fail_on_error: false        # if true, pipeline aborts on QC error
+
+aoi:
+  default_point_buffer_km: 10
+  default_point_mode: buffer  # point_only | buffer | nearest_cell | neighbourhood
+
+extremes:
+  method: gev
+  return_periods: [2, 5, 10, 20, 25, 50, 100, 200, 500]
+  n_bootstrap: 200
+  ci_level: 0.90
+  min_years_for_gev: 10
+
+design_storm:
+  default_duration_hours: 24
+  default_pattern: alternating_block
+  timestep_hours: 1.0
+
+bias_correction:
+  # Methods: linear_scaling | variance_scaling | empirical_quantile_mapping
+  default_method: empirical_quantile_mapping
+  holdout_fraction: 0.3
+  wet_day_mm: 0.1
+  benchmark_on_calibrate: true
+
+fusion:
+  method: mean                  # mean | weighted_mean | gauge_priority
+  require_at_least: 1
+  gauge_product_name: null      # set when a gauge product is in the collection
+
+validation:
+  spatial_folds: 5
+  temporal_folds: 5
+  station_csv: data/validation/stations.csv
+
+climate:
+  method: relative_delta      # relative_delta | absolute_delta
+  scenarios: [ssp126, ssp245, ssp370, ssp585]
+  horizons: [2030, 2050, 2080]
+  allow_default_factors: false
+  is_dynamical_downscaling: false   # never set true for delta methods
+
+hydrology:
+  loss_method: curve_number   # curve_number | green_ampt | none
+  curve_number_default: 75
+  initial_abstraction_ratio: 0.2
+  green_ampt_enabled: false
+  green_ampt:
+    hydraulic_conductivity_mm_h: 3.6
+    suction_head_mm: 100.0
+    theta_deficit: 0.2
+  unit_hydrograph:
+    time_to_peak_h: null      # default: timestep
+    base_time_factor: 2.67
+  # Discharge validation requires user-supplied observed Q(t)
+  discharge_validation_enabled: false
+
+hydraulics:
+  enabled: false
+  dx_m: 30
+  dy_m: 30
+  manning_default: 0.04
+
+uncertainty:
+  quality_min_years_high: 20
+  quality_min_years_moderate: 10
+  quality_min_years_low: 5
+  # Chain policy (Phase 7)
+  combination: weakest_link          # not a joint probability
+  claim_full_monte_carlo: false      # do not invent SWE ensembles
+  hydraulics_default_status: provisional
+
+scientific_options:
+  allow_synthetic_data: false
+  warn_on_known_issues: true
+  never_present_susceptibility_as_flood_hazard: true
+  never_present_delta_as_dynamical_downscaling: true
+
+risk:
+  enabled: true
+  depth_thresholds_m: [0.15, 0.50, 1.00]
+  # Assets are user-supplied; never invent production assets
+  assets_csv: null
+  # Financial loss / damage ratios: not implemented
+  financial_loss: false

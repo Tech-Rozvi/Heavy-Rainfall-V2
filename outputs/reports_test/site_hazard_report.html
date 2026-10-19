@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Site Flood Hazard Report — test</title>
+<style>
+  body { font-family: system-ui, Segoe UI, sans-serif; margin: 2rem; color: #122; max-width: 900px; }
+  h1 { border-bottom: 3px solid #1a56a0; padding-bottom: 0.4rem; }
+  h2 { color: #1a56a0; margin-top: 1.75rem; }
+  table { border-collapse: collapse; width: 100%; margin: 0.75rem 0 1.25rem; }
+  th, td { border: 1px solid #ccd; padding: 0.45rem 0.6rem; text-align: left; }
+  th { background: #e8f0fa; }
+  .meta { color: #456; font-size: 0.9rem; }
+  .pill { display: inline-block; padding: 0.2rem 0.55rem; border-radius: 999px; font-size: 0.8rem; margin-right: 0.35rem; }
+  .high { background: #fde8e8; color: #8b1a1a; }
+  .med { background: #fff3cd; color: #7a5b00; }
+  .low { background: #e6f5ec; color: #1b5e3a; }
+  .note { background: #f5f7fa; border-left: 4px solid #1a56a0; padding: 0.75rem 1rem; margin: 1rem 0; }
+  footer { margin-top: 2rem; font-size: 0.8rem; color: #678; }
+</style>
+</head>
+<body>
+  <h1>Site Flood Hazard Report</h1>
+  <p class="meta">
+    <strong>test</strong><br/>
+    Generated: 2026-10-16 06:49 UTC<br/>
+    AOI bounds: (0.0000, 0.0000) – (0.0000, 0.0000)<br/>
+    Mode: api
+  </p>
+
+  <div class="note">
+    Physical hazard assessment only. Depths in metres. Building counts are structure
+    footprints intersecting inundation — not insured loss or monetary damage.
+  </div>
+
+  <h2>1. Multi-peril indicators</h2>
+  <p>
+    <span class="pill med">Pluvial: medium</span>
+    <span class="pill low">Fluvial: low</span>
+    <span class="pill low">Coastal: low</span>
+  </p>
+  <p class="meta">Indicators inferred from run configuration (rainfall-driven pluvial default).</p>
+
+  <h2>2. Peak water depth by return period</h2>
+  <table>
+    <thead><tr><th>Return period T (years)</th><th>Peak depth h<sub>max</sub> (m)</th><th>Mean depth where wet (m)</th></tr></thead>
+    <tbody>
+    
+    </tbody>
+  </table>
+
+  <h2>3. CMIP6 climate shift (rainfall scale factors)</h2>
+  <p class="meta">Delta-change multipliers on baseline design rainfall (1 + ΔP/P<sub>hist</sub>). Replace placeholder tables with regional ensemble files for formal studies.</p>
+  <table>
+    <thead>
+      <tr><th>SSP</th><th>2030</th><th>2050</th><th>2080</th></tr>
+    </thead>
+    <tbody>
+    
+      <tr><td>ssp126</td><td>1.030</td><td>1.050</td><td>1.070</td></tr>
+    
+      <tr><td>ssp245</td><td>1.050</td><td>1.090</td><td>1.140</td></tr>
+    
+      <tr><td>ssp585</td><td>1.070</td><td>1.150</td><td>1.280</td></tr>
+    
+    </tbody>
+  </table>
+
+  <h2>4. Building exposure (physical counts)</h2>
+  <p>Total footprints in AOI: <strong>0</strong></p>
+  <table>
+    <thead><tr><th>Depth threshold</th><th>Structures intersecting inundation</th></tr></thead>
+    <tbody>
+    
+      <tr><td>gt_0.15m</td><td>0</td></tr>
+    
+      <tr><td>gt_0.5m</td><td>0</td></tr>
+    
+      <tr><td>gt_1.0m</td><td>0</td></tr>
+    
+    </tbody>
+  </table>
+
+  <h2>5. Data sources</h2>
+  <pre style="white-space:pre-wrap;font-size:0.8rem;background:#f8fafc;padding:0.75rem;">{}</pre>
+
+  <footer>
+    Heavy Rainfall Model v6 — executive site report. Not a substitute for detailed engineering survey or licensed catastrophe model output.
+  </footer>
+</body>
+</html>

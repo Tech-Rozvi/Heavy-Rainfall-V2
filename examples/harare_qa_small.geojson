@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Harare_QA_small" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [31.00, -17.88],
+          [31.15, -17.88],
+          [31.15, -17.75],
+          [31.00, -17.75],
+          [31.00, -17.88]
+        ]]
+      }
+    }
+  ]
+}

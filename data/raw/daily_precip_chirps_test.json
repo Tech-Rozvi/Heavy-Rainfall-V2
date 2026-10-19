@@ -1,0 +1,33 @@
+{
+  "bounds": [
+    30.824774774774774,
+    -18.055225225225225,
+    31.275225225225228,
+    -17.60477477477477
+  ],
+  "start": "2018-01-01",
+  "end": "2020-12-31",
+  "shape": [
+    1096,
+    1,
+    1
+  ],
+  "units": "mm/day",
+  "source": {
+    "provider": "CHIRPS",
+    "access": "ClimateSERV_chunked_yearly",
+    "fallback": "UCSB_GeoTIFF_per_year",
+    "doi": "10.1038/sdata.2015.66",
+    "detail": {
+      "provider": "CHIRPS",
+      "access": "ClimateSERV_API",
+      "url": "https://climateserv.servirglobal.net/chirps",
+      "doi": "10.1038/sdata.2015.66"
+    },
+    "n_chunks": 3
+  },
+  "n_days": 1096,
+  "n_years_approx": 3.0,
+  "crs": "EPSG:4326",
+  "disclaimer": "CHIRPS is a quasi-global rainfall product (Funk et al., Scientific Data). Use \u226520\u201330 years for stable extreme-value return levels."
+}

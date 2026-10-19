@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "aoi_id": "7193da7e60da8a14",
+    "timestamp_utc": "2026-10-07T18:54:17.102003+00:00",
+    "model_version": "8.0.0",
+    "module": "climate_v2.delta",
+    "crs": "EPSG:4326",
+    "units": {},
+    "scenario": "ssp245",
+    "return_period_years": null,
+    "confidence": null,
+    "data_kind": "projected",
+    "notes": [
+      "Method: relative_delta",
+      "This is NOT dynamical downscaling.",
+      "This is NOT a weather forecast."
+    ]
+  },
+  "method": "relative_delta",
+  "ssp": "ssp245",
+  "horizon_year": 2050,
+  "baseline_period": [
+    1981,
+    2010
+  ],
+  "future_period": [
+    2041,
+    2070
+  ],
+  "delta_mean_frac": null,
+  "delta_extreme_frac": 0.12,
+  "ensemble_percentiles": null,
+  "source_gcms": null,
+  "source_rcms": null,
+  "is_dynamical_downscaling": false,
+  "notes": [
+    "Method: relative_delta",
+    "This is NOT dynamical downscaling.",
+    "This is NOT a weather forecast."
+  ]
+}

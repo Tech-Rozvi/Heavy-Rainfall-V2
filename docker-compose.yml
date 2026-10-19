@@ -1,0 +1,13 @@
+# Optional local stack for ROZVI API (Phase 11)
+# Usage: docker compose up --build
+services:
+  rozvi-api:
+    build: .
+    image: rozvi:0.10.0
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    command: ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8000"]
+    volumes:
+      - ./outputs:/app/outputs

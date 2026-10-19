@@ -1,0 +1,12 @@
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+venv
+.venv
+outputs/**
+!outputs/.gitkeep
+*.zip
+docs/archive
+.DS_Store

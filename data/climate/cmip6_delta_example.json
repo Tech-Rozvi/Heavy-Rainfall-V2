@@ -1,0 +1,17 @@
+{
+  "ssp126": {
+    "2030": {"EC-Earth3": 2.5, "MPI-ESM1-2-HR": 3.2, "ACCESS-CM2": 2.8},
+    "2050": {"EC-Earth3": 4.1, "MPI-ESM1-2-HR": 5.5, "ACCESS-CM2": 4.8},
+    "2080": {"EC-Earth3": 6.0, "MPI-ESM1-2-HR": 7.2, "ACCESS-CM2": 6.5}
+  },
+  "ssp245": {
+    "2030": {"EC-Earth3": 4.5, "MPI-ESM1-2-HR": 5.5, "ACCESS-CM2": 5.0},
+    "2050": {"EC-Earth3": 8.1, "MPI-ESM1-2-HR": 10.2, "ACCESS-CM2": 7.5},
+    "2080": {"EC-Earth3": 13.0, "MPI-ESM1-2-HR": 15.5, "ACCESS-CM2": 12.8}
+  },
+  "ssp585": {
+    "2030": {"EC-Earth3": 6.0, "MPI-ESM1-2-HR": 7.5, "ACCESS-CM2": 6.8},
+    "2050": {"EC-Earth3": 14.0, "MPI-ESM1-2-HR": 16.5, "ACCESS-CM2": 13.2},
+    "2080": {"EC-Earth3": 26.0, "MPI-ESM1-2-HR": 30.0, "ACCESS-CM2": 25.5}
+  }
+}

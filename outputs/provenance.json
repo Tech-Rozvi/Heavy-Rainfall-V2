@@ -1,0 +1,78 @@
+{
+  "mode": "local",
+  "aoi": {
+    "source": "rozvi_aoi",
+    "aoi_id": "f40d4032f36207f8",
+    "crs_confidence": "user_supplied",
+    "diagnostic": {
+      "aoi_id": "f40d4032f36207f8",
+      "status": "ok",
+      "geometry_type": "Polygon",
+      "crs": "EPSG:4326",
+      "original_crs": "EPSG:4326",
+      "crs_confidence": "user_supplied",
+      "bounds": [
+        30.825421178970117,
+        -18.04366338327761,
+        31.27457882102988,
+        -17.61608003141673
+      ],
+      "area_km2": 1960.3428065912083,
+      "n_features": 1,
+      "point_mode": "buffer",
+      "buffer_radius_km": 25.0,
+      "user_coordinate": [
+        31.05,
+        -17.83
+      ],
+      "user_crs": "EPSG:4326",
+      "source_format": "point",
+      "coverage": {
+        "precip_products": [
+          "unknown \u2014 supply data catalogue"
+        ],
+        "climate_products": [
+          "unknown \u2014 supply data catalogue"
+        ],
+        "dem_available": null,
+        "station_count_nearby": null
+      },
+      "domain_overlap": null,
+      "warnings": [],
+      "recommendation": "AOI appears usable. Proceed with analysis; review warnings."
+    }
+  },
+  "sources": {
+    "mode": "local",
+    "raw_dir": "data\\raw"
+  },
+  "resolution_m": 5000.0,
+  "n_years": 2.9979466119096507,
+  "outputs": [
+    "outputs\\rasters\\susceptibility.tif"
+  ],
+  "product_metadata": {
+    "product": "relative_rainfall_susceptibility",
+    "product_label": "legacy_relative_susceptibility",
+    "validation_status": "legacy_diagnostic",
+    "units": "dimensionless_score_0_1",
+    "is_flood_depth": false,
+    "is_return_level": false,
+    "is_financial_risk": false,
+    "canonical_replacement": {
+      "extremes": "src.eprf.extremes / POST /v1/rozvi/return-periods",
+      "hydrology": "src.hydrology",
+      "flood_depth": "src.hydraulics via RainfallForcing (provisional)",
+      "uncertainty": "src.rozvi.chain"
+    },
+    "disclaimer": "LEGACY DIAGNOSTIC ONLY: relative rainfall susceptibility score in [0, 1]. Not flood depth, not a return level (mm), not a regulatory hazard map, and not financial risk. Prefer EPRF return levels and (if required) provisional hydraulic depth products.",
+    "source_path": "main.run_pipeline",
+    "extra": {
+      "weights": {
+        "map": 0.22,
+        "rx1": 0.18,
+        "p95": 0.15
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heavy Rainfall Model</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">☔</span>
+      <div>
+        <h1>Heavy Rainfall Model</h1>
+        <p class="tag">Susceptibility · Forecast depth · Zimbabwe AOI</p>
+      </div>
+    </div>
+    <div id="health" class="pill muted">checking…</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Run configuration</h2>
+
+      <label>Mode</label>
+      <select id="mode">
+        <option value="api">Historical API (CHIRPS + DEM + atmosphere)</option>
+        <option value="forecast">Forecast early warning (Open-Meteo QPF → depth)</option>
+        <option value="local">Local data under data/raw</option>
+      </select>
+
+      <div class="row">
+        <div>
+          <label>Country</label>
+          <input id="country" value="Zimbabwe" />
+        </div>
+        <div>
+          <label>Province(s) (ADM1) — Ctrl/Cmd+click for multiple</label>
+          <select id="adm1" multiple size="6">
+            <option selected>Harare</option>
+            <option>Bulawayo</option>
+            <option>Manicaland</option>
+            <option>Mashonaland Central</option>
+            <option>Mashonaland East</option>
+            <option>Mashonaland West</option>
+            <option>Masvingo</option>
+            <option>Matabeleland North</option>
+            <option>Matabeleland South</option>
+            <option>Midlands</option>
+          </select>
+          <p class="hint" style="margin-top:0.35rem">Multiple provinces are merged into one AOI bounding box.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>District (ADM2, optional)</label>
+          <input id="adm2" placeholder="e.g. Harare" />
+        </div>
+        <div>
+          <label>Ward (ADM3, optional)</label>
+          <input id="adm3" placeholder="optional" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Start date</label>
+          <input id="start" type="date" value="2019-01-01" />
+        </div>
+        <div>
+          <label>End date</label>
+          <input id="end" type="date" value="2019-12-31" />
+        </div>
+      </div>
+
+      <div class="row" id="forecastRow" style="display:none">
+        <div>
+          <label>Forecast days (1–7)</label>
+          <input id="forecastDays" type="number" min="1" max="7" value="5" />
+        </div>
+      </div>
+
+      <label>Or paste AOI GeoJSON (optional, overrides admin)</label>
+      <textarea id="aoiJson" rows="4" placeholder='{"type":"Polygon","coordinates":[[[31.0,-17.88],[31.15,-17.88],[31.15,-17.75],[31.0,-17.75],[31.0,-17.88]]]}'></textarea>
+
+      <div class="actions">
+        <button id="btnRun" class="primary">Run model</button>
+        <button id="btnHealth" class="ghost">Refresh health</button>
+        <button id="btnReport" class="ghost">Latest report</button>
+      </div>
+      <p class="hint">Runs may take several minutes while remote data streams. Keep this tab open.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Results</h2>
+      <div id="status" class="status idle">Idle</div>
+      <pre id="output" class="output">Submit a run to see JSON results, provenance, and file paths.</pre>
+    </section>
+  </main>
+
+  <footer>
+    <span>API docs: <a href="/docs" target="_blank">/docs</a></span>
+    <span>No synthetic data by default</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

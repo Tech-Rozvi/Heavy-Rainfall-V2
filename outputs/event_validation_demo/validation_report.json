@@ -1,0 +1,66 @@
+{
+  "event_id": "demo_synthetic_event",
+  "n_marks": 4,
+  "point_metrics": {
+    "n_compared": 4,
+    "n_outside_or_nodata": 0,
+    "bias_m": 0.23349999999999996,
+    "mae_m": 0.23349999999999996,
+    "rmse_m": 0.27405656350468965,
+    "max_abs_error_m": 0.44999999999999996
+  },
+  "point_comparisons": [
+    {
+      "mark_id": "hwm_centre",
+      "x": 20,
+      "y": 20,
+      "observed_m": 1.15,
+      "simulated_m": 1.2,
+      "error_m": 0.050000000000000044,
+      "inside_grid": true
+    },
+    {
+      "mark_id": "hwm_a",
+      "x": 15,
+      "y": 18,
+      "observed_m": 0.95,
+      "simulated_m": 1.142,
+      "error_m": 0.19199999999999995,
+      "inside_grid": true
+    },
+    {
+      "mark_id": "hwm_b",
+      "x": 25,
+      "y": 22,
+      "observed_m": 0.9,
+      "simulated_m": 1.142,
+      "error_m": 0.24199999999999988,
+      "inside_grid": true
+    },
+    {
+      "mark_id": "hwm_edge",
+      "x": 10,
+      "y": 10,
+      "observed_m": 0.35,
+      "simulated_m": 0.7999999999999999,
+      "error_m": 0.44999999999999996,
+      "inside_grid": true
+    }
+  ],
+  "footprint": null,
+  "passed": true,
+  "validation_status": "event_validated",
+  "criteria": {
+    "min_marks": 3,
+    "max_mae_m": 0.3,
+    "max_abs_bias_m": 0.3,
+    "min_csi": null,
+    "require_footprint": false
+  },
+  "notes": [
+    "PASSED event criteria. Status event_validated applies to this event depth field only \u2014 not automatically to design return-period maps."
+  ],
+  "observation_sources": [
+    "demo"
+  ]
+}

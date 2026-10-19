@@ -1,0 +1,157 @@
+{
+  "aoi_id": "demo_point_harare",
+  "return_level_100y_mm": 91.04590515240034,
+  "return_confidence": "Very low",
+  "hydro_peak_m3s": 95.85119468218684,
+  "hydraulics_validation_status": "provisional",
+  "depth_product": {
+    "product": "flood_depth",
+    "units": "m",
+    "validation_status": "provisional",
+    "label": "provisional_flood_depth",
+    "wet_fraction": 0.006944444444444444,
+    "max_m": 0.05559499515925982,
+    "mean_wet_m": 0.05559499515925982,
+    "disclaimer": "Flood depth / inundation products are PROVISIONAL. They have not been validated against observed flood events in this repository. Do not use as regulatory design flood surfaces without independent validation."
+  },
+  "risk_disclaimers": [
+    "Rainfall susceptibility is not flood hazard.",
+    "Flood depth products may be provisional and inherit into exposure.",
+    "Exposure counts/lengths are physical metrics only \u2014 not financial risk.",
+    "This snapshot is not an insured-loss or regulatory design product."
+  ],
+  "chain": {
+    "stages": [
+      {
+        "stage": "rainfall_extremes",
+        "confidence": "Very low",
+        "quantified": true,
+        "estimate": 91.04590515240034,
+        "interval_low": 67.78379252755252,
+        "interval_high": 128.6604565527776,
+        "interval_level": 0.9,
+        "units": "mm/day (or mm per accumulation period)",
+        "validation_status": "statistical_fit",
+        "drivers": [
+          "n_years=25",
+          "extrapolation_ratio=4.0",
+          "exceeds_record=True"
+        ],
+        "notes": [
+          "Extrapolation ratio 4.0 > 2 (T=100, n=25); wide CI (67% of estimate)"
+        ]
+      },
+      {
+        "stage": "hydrology",
+        "confidence": "Low",
+        "quantified": true,
+        "estimate": 95.85119468218684,
+        "interval_low": 76.68095574574947,
+        "interval_high": 124.6065530868429,
+        "interval_level": null,
+        "units": "m3/s",
+        "validation_status": "not_validated",
+        "drivers": [
+          "method=curve_number",
+          "n_sensitivity=3"
+        ],
+        "notes": [
+          "SCS-CN and triangular unit hydrograph are not regionally calibrated here.",
+          "Interval is a sensitivity envelope (min/max of supplied runs), not a confidence interval."
+        ]
+      },
+      {
+        "stage": "hydraulics",
+        "confidence": "Very low",
+        "quantified": false,
+        "estimate": 0.05559499515925982,
+        "interval_low": null,
+        "interval_high": null,
+        "interval_level": null,
+        "units": "m",
+        "validation_status": "provisional",
+        "drivers": [
+          "validation_status=provisional"
+        ],
+        "notes": [
+          "No event validation in this repository.",
+          "Depth confidence interval is not computed (no SWE ensemble)."
+        ]
+      },
+      {
+        "stage": "exposure",
+        "confidence": "Very low",
+        "quantified": false,
+        "estimate": null,
+        "interval_low": null,
+        "interval_high": null,
+        "interval_level": null,
+        "units": null,
+        "validation_status": "provisional",
+        "drivers": [
+          "inherits hazard validation status"
+        ],
+        "notes": [
+          "Physical exposure only; not financial risk.",
+          "Does not reduce uncertainty relative to the hazard layer."
+        ]
+      }
+    ],
+    "overall_confidence": "Very low",
+    "weakest_stage": "rainfall_extremes",
+    "claims_full_propagation": false,
+    "notes": [
+      "Overall confidence is the weakest quantified stage, not a joint probability.",
+      "Numerical intervals apply only to the stage that computed them."
+    ]
+  },
+  "provenance": {
+    "aoi_id": "demo_point_harare",
+    "product": "phase8_demo",
+    "data_kind": "diagnostic",
+    "platform_version": "0.10.0",
+    "eprf_version": "8.2.0",
+    "platform_name": "ROZVI",
+    "timestamp_utc": "2026-10-09T06:25:01.947978+00:00",
+    "crs": "EPSG:4326",
+    "units": {},
+    "datasets": [
+      {
+        "name": "chain_uncertainty",
+        "source": null,
+        "version": null,
+        "path": null,
+        "crs": null,
+        "spatial_resolution": null,
+        "temporal_resolution": null,
+        "units": "mixed",
+        "role": "diagnostic"
+      }
+    ],
+    "parameters": {
+      "weakest_stage": "rainfall_extremes",
+      "claims_full_propagation": false,
+      "n_stages": 4
+    },
+    "processing_steps": [
+      "rainfall_extremes: confidence=Very low; quantified=True; status=statistical_fit",
+      "hydrology: confidence=Low; quantified=True; status=not_validated",
+      "hydraulics: confidence=Very low; quantified=False; status=provisional",
+      "exposure: confidence=Very low; quantified=False; status=provisional"
+    ],
+    "random_seed": null,
+    "scenario": null,
+    "return_period_years": null,
+    "confidence": "Very low",
+    "software": {
+      "python": "3.12.3",
+      "platform": "Linux-6.12.8+-x86_64-with-glibc2.39"
+    },
+    "notes": [
+      "Overall confidence is the weakest quantified stage, not a joint probability.",
+      "Numerical intervals apply only to the stage that computed them."
+    ],
+    "config_hash": null
+  },
+  "scientific_note": "Demonstration with synthetic AMS and toy DEM. Not an operational or regulatory flood assessment."
+}

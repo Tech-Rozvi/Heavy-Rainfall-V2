@@ -1,0 +1,4 @@
+asset_id,x,y,name,asset_type,address
+A001,31.05,-17.83,HQ Building,building,"1 Samora Machel Ave"
+A002,31.06,-17.84,Clinic,facility,"Clinic Road"
+A003,31.04,-17.82,Depot,building,"Industrial Way"

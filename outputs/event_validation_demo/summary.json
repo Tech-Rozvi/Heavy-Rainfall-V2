@@ -1,0 +1,36 @@
+{
+  "validation_status": "event_validated",
+  "passed": true,
+  "metrics": {
+    "n_compared": 4,
+    "n_outside_or_nodata": 0,
+    "bias_m": 0.23349999999999996,
+    "mae_m": 0.23349999999999996,
+    "rmse_m": 0.27405656350468965,
+    "max_abs_error_m": 0.44999999999999996
+  },
+  "labels": {
+    "product": "flood_depth",
+    "units": "m",
+    "validation_status": "event_validated",
+    "label": "flood_depth",
+    "wet_fraction": 0.946875,
+    "max_m": 1.2,
+    "mean_wet_m": 0.7081768976897689,
+    "disclaimer": "Event-validated for event_id=demo_synthetic_event against 4 high-water marks (sources=['demo']). Does not imply regulatory design-flood approval or validation of other events.",
+    "event_id": "demo_synthetic_event",
+    "validation_passed": true,
+    "point_metrics": {
+      "n_compared": 4,
+      "n_outside_or_nodata": 0,
+      "bias_m": 0.23349999999999996,
+      "mae_m": 0.23349999999999996,
+      "rmse_m": 0.27405656350468965,
+      "max_abs_error_m": 0.44999999999999996
+    }
+  },
+  "geotiffs": [],
+  "notes": [
+    "PASSED event criteria. Status event_validated applies to this event depth field only \u2014 not automatically to design return-period maps."
+  ]
+}

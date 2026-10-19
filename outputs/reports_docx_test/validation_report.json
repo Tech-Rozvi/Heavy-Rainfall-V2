@@ -1,0 +1,57 @@
+{
+  "event_id": "demo",
+  "n_marks": 3,
+  "point_metrics": {
+    "n_compared": 3,
+    "n_outside_or_nodata": 0,
+    "bias_m": 0.0,
+    "mae_m": 0.013333333333333345,
+    "rmse_m": 0.016329931618554536,
+    "max_abs_error_m": 0.020000000000000018
+  },
+  "point_comparisons": [
+    {
+      "mark_id": "a",
+      "x": 5,
+      "y": 5,
+      "observed_m": 0.48,
+      "simulated_m": 0.5,
+      "error_m": 0.020000000000000018,
+      "inside_grid": true
+    },
+    {
+      "mark_id": "b",
+      "x": 8,
+      "y": 8,
+      "observed_m": 0.52,
+      "simulated_m": 0.5,
+      "error_m": -0.020000000000000018,
+      "inside_grid": true
+    },
+    {
+      "mark_id": "c",
+      "x": 10,
+      "y": 4,
+      "observed_m": 0.5,
+      "simulated_m": 0.5,
+      "error_m": 0.0,
+      "inside_grid": true
+    }
+  ],
+  "footprint": null,
+  "passed": true,
+  "validation_status": "event_validated",
+  "criteria": {
+    "min_marks": 3,
+    "max_mae_m": 0.3,
+    "max_abs_bias_m": 0.3,
+    "min_csi": null,
+    "require_footprint": false
+  },
+  "notes": [
+    "PASSED event criteria. Status event_validated applies to this event depth field only \u2014 not automatically to design return-period maps."
+  ],
+  "observation_sources": [
+    "user"
+  ]
+}

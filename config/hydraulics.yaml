@@ -1,0 +1,14 @@
+# Optional hydraulics / multi-peril settings (merge with config.yaml as needed)
+hydraulics:
+  enabled: true
+  dx_m: 30
+  dy_m: 30
+  manning_default: 0.04
+  curve_number_default: 75
+  storm_duration_h: 24
+  evt_method: gumbel   # gumbel | gev
+  return_periods: [10, 50, 100, 250, 500]
+  # Multi-peril switches
+  pluvial: true
+  fluvial: true
+  coastal: true

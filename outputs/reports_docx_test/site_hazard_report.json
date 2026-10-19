@@ -1,0 +1,64 @@
+{
+  "site_name": "Harare demo",
+  "bounds": [
+    30.8,
+    -18.1,
+    31.3,
+    -17.6
+  ],
+  "mode": "local",
+  "depth_rows": [
+    {
+      "T": 10,
+      "h_max": "0.200",
+      "h_mean_wet": "0.200"
+    },
+    {
+      "T": 50,
+      "h_max": "0.450",
+      "h_mean_wet": "0.450"
+    },
+    {
+      "T": 100,
+      "h_max": "0.700",
+      "h_mean_wet": "0.700"
+    }
+  ],
+  "climate_rows": [
+    {
+      "ssp": "ssp126",
+      "y2030": "1.030",
+      "y2050": "1.050",
+      "y2080": "1.070"
+    },
+    {
+      "ssp": "ssp245",
+      "y2030": "1.050",
+      "y2050": "1.090",
+      "y2080": "1.140"
+    },
+    {
+      "ssp": "ssp585",
+      "y2030": "1.070",
+      "y2050": "1.150",
+      "y2080": "1.280"
+    }
+  ],
+  "exposure": {
+    "n_buildings": 12,
+    "by_threshold": {
+      "gt_0.15m": 8,
+      "gt_0.5m": 3
+    }
+  },
+  "peril": {
+    "pluvial": "medium",
+    "fluvial": "low",
+    "coastal": "low",
+    "notes": "Demo"
+  },
+  "sources": {
+    "precip": "CHIRPS"
+  },
+  "generated_at": "2026-10-19 03:53"
+}
